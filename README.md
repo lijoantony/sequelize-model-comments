@@ -46,7 +46,7 @@ npm install --save sequelize-model-comments
 
 ## Usage
 
-Sequelize Model Comments assumes that you already set up your Sequelize connection, for example, like this:
+Sequelize Model Comments assumes that you have already set up your Sequelize connection, for example, like this:
 ```javascript
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('database', 'username', 'password');
@@ -88,7 +88,7 @@ Post.enableModelComments();
 
 ## User Tracking
 
-There are 2 steps to enable user tracking, ie, recording the user who created a particular revision.
+There are 2 steps to enable user tracking, ie, recording the user who created a comment.
 1. Enable user tracking by passing `userModel` option to `init`, with the name of the model which stores users in your application as the value.
 
 ```javascript
@@ -119,16 +119,14 @@ Model Comments supports various options that can be passed into the initializati
 ```javascript
 // Default options
 var options = {
-  revisionAttribute: 'revision',
   commentModel: 'Comment',
   UUID: false,
   underscored: false,
   underscoredAttributes: false,
   defaultAttributes: {
     documentId: 'documentId',
-    revisionId: 'revisionId'
+    model: 'model'
   },
-  enableMigration: false,
 };
 ```
 
@@ -137,21 +135,18 @@ var options = {
 | Option | Type | Default Value | Description |
 |-------------------------|---------|-----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [debug] | Boolean | false | Enables logging to the console. |
-| [revisionAttribute] | String | 'revision' | Name of the attribute in the table that corresponds to the current revision. |
-| [commentModel] | String | 'Comment | Name of the model that keeps the revision models. |
-| [UUID] | Boolean | false | The [revisionModel] has id attribute of type UUID for postgresql. |
-| [underscored] | Boolean | false | The [revisionModel] and [revisionChangeModel] have 'createdAt' and 'updatedAt' attributes, by default, setting this option to true changes it to 'created_at' and 'updated_at'. |
-| [underscoredAttributes] | Boolean | false | The [revisionModel] has a [defaultAttribute] 'documentId', and the [revisionChangeModel] has a  [defaultAttribute] 'revisionId, by default, setting this option to true changes it to 'document_id' and 'revision_id'. |
-| [defaultAttributes] | Object | { documentId: 'documentId', revisionId: 'revisionId' } |  |
+| [commentModel] | String | 'Comment | Name of the model that keeps the comments. |
+| [UUID] | Boolean | false | The [commentModel] has id attribute of type UUID for postgresql. |
+| [underscored] | Boolean | false | The [commentModel] has 'createdAt' and 'updatedAt' attributes, by default, setting this option to true changes it to 'created_at' and 'updated_at'. |
+| [underscoredAttributes] | Boolean | false | The [commentModel] has a [defaultAttribute] 'documentId' by default, setting this option to true changes it to 'document_id'. |
+| [defaultAttributes] | Object | { documentId: 'documentId', model: 'model' } |  |
 | [userModel] | String | | Name of the model that stores users in your. |
-| [enableMigration] | Boolean | false | Automatically adds the [revisionAttribute] via a migration to the models that have model commentss enabled. |
 
 
 ## Support
 
 Please use:
 * GitHub's [issue tracker](https://github.com/lijoantony/sequelize-model-comments/issues)
-* Tweet directly to ``
 
 ## Contributing
 
@@ -163,9 +158,9 @@ Please use:
 
 ## Author
 
-© [Lijo Antony](https://lijoantony.com) – [@lijo_](https://twitter.com/lijo_) – lijozom@gmail.com
-Distributed under the MIT license. See ``LICENSE`` for more information.
-[https://github.com/lijoantony/sequelize-model-comments](https://github.com/lijoantony/)
+© [Lijo Antony](https://lijoantony.com) – [@lijo_](https://twitter.com/lijo_) – lijozom@gmail.com  
+Distributed under the MIT license. See ``LICENSE`` for more information.  
+[https://github.com/lijoantony/sequelize-model-comments](https://github.com/lijoantony/)  
 
 ## Thanks
 
