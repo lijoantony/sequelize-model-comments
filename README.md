@@ -78,7 +78,7 @@ var sequelize = new Sequelize('database', 'username', 'password');
 var ModelComments = require('sequelize-model-comments').init(sequelize, options || {});
 ModelComments.defineModels();
 
-var Post = sequelize.define('Post, {
+var Post = sequelize.define('Post', {
   title: Sequelize.STRING,
   content: Sequelize.STRING,
 });
@@ -120,7 +120,7 @@ Model Comments supports various options that can be passed into the initializati
 // Default options
 var options = {
   revisionAttribute: 'revision',
-  commentModel: 'Comment,
+  commentModel: 'Comment',
   UUID: false,
   underscored: false,
   underscoredAttributes: false,
