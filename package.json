@@ -1,6 +1,6 @@
 {
   "name": "sequelize-model-comments",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Add comments to your Sequelize models.",
   "bugs": {
     "url": "https://github.com/lijoantony/sequelize-model-comments/issues",
